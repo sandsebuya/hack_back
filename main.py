@@ -16,6 +16,7 @@ def start_p():
 
 class Quote(Resource):
 	def get(self,id=0):
+
 		id=int(request.args.get('id'))
 		if id==0:
 			return get_starting(curs),200
