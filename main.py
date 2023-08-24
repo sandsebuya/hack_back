@@ -17,9 +17,9 @@ class Quote(Resource):
 	def get(self,id=0):
 
 		try:
-			curs.execute(f"select name, description from hackaton")
+			curs.execute(f"select id,name, longitude, latitude from hackaton")
 			list_data=[]
-			list_keys = ["name", "description"]
+			list_keys = ["id","name", "longitude", "latitude"]
 			responce= curs.fetchall()
 			if responce==[]:
 				return "error", 500
@@ -36,9 +36,9 @@ class Quote(Resource):
 		except:
 			return "error", 500
 		try:
-			curs.execute(f"select name, description from hackaton where id = {id}")
+			curs.execute(f"select name, description,url from hackaton where id = {id}")
 			list_data = []
-			list_keys = ["name", "description"]
+			list_keys = ["name", "description","url"]
 			responce = curs.fetchall()
 			if responce == []:
 				return "error", 500
